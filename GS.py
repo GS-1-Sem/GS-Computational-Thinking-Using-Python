@@ -79,4 +79,3 @@ while True:
 print("Você saiu de nosso sistema")
 print("Esses são os ecopontos que foram cadastrados")
 print(Ecopontos)
-s)
