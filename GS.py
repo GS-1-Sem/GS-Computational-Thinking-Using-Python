@@ -16,12 +16,12 @@ while True:
         opcoes = int(input("Digite à opção que você deseja: "))
         if opcoes == 1:
             print("Cadastrar novo ecoponto")
-            ecoponto = input("Digite o nome do escoponto: ")
+            ecoponto = input("Digite o nome do ecoponto: ")
             Ecopontos.append(ecoponto)
         if opcoes == 0:
             break
     if len(Ecopontos) > 0:
-        print("Esses sãos os escopontos que foram cadastrados")
+        print("Esses sãos os ecopontos que foram cadastrados")
         print(Ecopontos)
         print("Opção" + "-" * 10 + "Descrição")
         print("1" + "-" * 10 + "Cadastrar um novo ecoponto")
@@ -30,7 +30,7 @@ while True:
         opcoes = int(input("Digite à opção que você deseja: "))
         if opcoes == 1:
             print("Cadastrar novo ecoponto")
-            ecoponto = input("Digite o nome do escoponto: ")
+            ecoponto = input("Digite o nome do ecoponto: ")
             Ecopontos.append(ecoponto)
             print(Ecopontos)
         if opcoes == 2:
@@ -46,5 +46,5 @@ while True:
         if opcoes == 0:
             break
 print("Você saiu de nosso sistema")
-print("Esses são os escopontos que foram cadastrados")
+print("Esses são os ecopontos que foram cadastrados")
 print(Ecopontos)
