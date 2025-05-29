@@ -1,81 +1,85 @@
 # ================================================================
-# Aplicação: Sistema de Monitoramento de Ecopontos
+# Aplicação: Simulação de um back-end de "Ecopontos"
+# Para saber o que são ecopontos (Se você não souber) e mais do projeto acesse: link github
+#
 # Nome: Pedro Henrique Sartorelli Ferreira RM:563281,
 #       Arthur Ferreira Alves dos Santos RM:564958,
 #       GUSTAVO MOURA BARBOSA RM:566190
 # ================================================================
 
 # Lista vazia para armazenar os ecopontos cadastrados
-Ecopontos = []
+ecopontos = []
 
-# Mensagem de boas-vindas ao sistema
-print("Seja bem-vindos à o sistema de ecopontos")
+print("Bem-vindo! Aqui você pode adicionar ou excluir os ecopontos")
 
-# Laço principal do sistema — roda até que o usuário escolha sair
+# Menu de opções
+print("\nOpções:")
+print("1 - Adicionar")
+print("2 - Excluir")
+print("3 - Listar itens")
+print("0 - Sair")
+
 while True:
-    # Verifica se ainda não há ecopontos cadastrados
-    if len(Ecopontos) <= 0:
-        print("A gente não possui nenhum ecoponto cadastrado no nosso sistema")
-        
-        # Menu de opções para quando não há nenhum ecoponto
-        print("Opção" + "-" * 10 + "Descrição")
-        print("1" + "-" * 10 + "Cadastrar um novo ecoponto")
-        print("0" + "-" * 10 + "Sair do sistema")
 
-        # Recebe a opção digitada pelo usuário
-        opcoes = int(input("Digite à opção que você deseja: "))
+    # Espaço para melhorar visualização
+    print()
 
-        # Se o usuário escolher a opção 1, permite cadastrar um novo ecoponto
-        if opcoes == 1:
-            print("Cadastrar novo ecoponto")
-            ecoponto = input("Digite o nome do ecoponto: ")
-            Ecopontos.append(ecoponto)  # Adiciona o ecoponto à lista
+    opcao = input("Escolha uma opção: ")
 
-        # Se o usuário escolher sair
-        if opcoes == 0:
-            break  # Encerra o loop e o sistema
+    print('-' * 10)
 
-    # Se já existem ecopontos cadastrados
-    if len(Ecopontos) > 0:
-        print("Esses são os ecopontos que foram cadastrados")
-        print(Ecopontos)  # Mostra todos os ecopontos
+    # Adiciona um ecoponto na lista.
+    if opcao == "1":
+        item = input("Digite o item para adicionar: ")
 
-        # Menu de opções quando há ecopontos cadastrados
-        print("Opção" + "-" * 10 + "Descrição")
-        print("1" + "-" * 10 + "Cadastrar um novo ecoponto")
-        print("2" + "-" * 10 + "Excluir ecoponto")
-        print("0" + "-" * 10 + "Sair do sistema")
+        ecopontos.append(item)
 
-        # Recebe a opção digitada pelo usuário
-        opcoes = int(input("Digite à opção que você deseja: "))
+        print()
 
-        # Opção 1: Cadastrar novo ecoponto
-        if opcoes == 1:
-            print("Cadastrar novo ecoponto")
-            ecoponto = input("Digite o nome do ecoponto: ")
-            Ecopontos.append(ecoponto)  # Adiciona o novo ecoponto
-            print(Ecopontos)  # Mostra a lista atualizada
+        print(f"Item '{item}' adicionado.")
 
-        # Opção 2: Excluir um ecoponto
-        if opcoes == 2:
-            print("Excluir ecoponto")
-            print(Ecopontos)  # Mostra ecopontos atuais
-            ecoponto = input("Qual o nome do ecoponto que você deseja excluir: ")
+        print('-' * 10)
 
-            # Verifica se o ecoponto está na lista
-            if ecoponto in Ecopontos:
-                Ecopontos.remove(ecoponto)  # Remove da lista
-                print(f"{ecoponto} removido!")  # Confirmação
+    # Exclui um ecoponto na lista.
+    elif opcao == "2":
+
+        if len(ecopontos) == 0:
+            print("A lista está vazia, não há itens para excluir.")
+
+            print('-' * 10)
+        else:
+
+            # Lista os ecopontos mostrando o índice de cada um na lista.
+            print("Itens na lista:")
+            for i in range(len(ecopontos)):
+                print(f"{i} - {ecopontos[i]}")
+
+            print('-' * 10)
+
+            indice = int(input("Digite o índice do item para excluir: "))
+
+            if 0 <= indice < len(ecopontos):
+                removido = ecopontos.pop(indice)
+                print(f"Item '{removido}' removido.")
             else:
-                print(f"{ecoponto} não existe!")  # Mensagem de erro
+                print("Índice inválido.")
 
-            print(Ecopontos)  # Lista atualizada após exclusão
 
-        # Opção 0: Sair do sistema
-        if opcoes == 0:
-            break  # Encerra o loop e o sistema
+    elif opcao == "3":
+        if len(ecopontos) == 0:
+            print("A lista está vazia.")
+        else:
+            print("Itens na lista:")
+            for i in ecopontos:
+                print()
+                print(i)
 
-# Mensagem final após o encerramento
-print("Você saiu de nosso sistema")
-print("Esses são os ecopontos que foram cadastrados")
-print(Ecopontos)
+        print('-' * 10)
+
+    elif opcao == "0":
+        print("Saindo... Até mais!")
+        break
+
+    else:
+        print("Opção inválida. Tente novamente.")
+        print()
